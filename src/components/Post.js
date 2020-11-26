@@ -32,9 +32,9 @@ const Post = ({ posts, loading, fetchUsers }) => {
     { label: 'Viúvo(a)', value: 'widow/widower' },
   ];
 
-  if (loading) {
-    return <h2>Loading...</h2>;
-  }
+  // if (loading) {
+  //   return <h2>Loading...</h2>;
+  // }
 
   const removeToggle = () => setRemoveModal(!removeModal);
   const updateToogle = () => setUpdateModal(!updateModal);
