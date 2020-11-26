@@ -67,7 +67,7 @@ const Register = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const data = prepareData();
-    axios.post('http://localhost:3001/users', data)
+    axios.post(`${process.env.REACT_APP_API_URL}/users`, data)
       .then((res) => {
         history.push('/');
       })

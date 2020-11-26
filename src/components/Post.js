@@ -74,7 +74,7 @@ const Post = ({ posts, loading, fetchUsers }) => {
         state: user.state,
         city: user.city,
       };
-      axios.put(`http://localhost:3001/users/${user._id}`, data)
+      axios.put(`${process.env.REACT_APP_API_URL}/${user._id}`, data)
         .then((res) => {
           alert(`${res.data.user} atualizado!`);
           setUpdateModal(false);
@@ -87,7 +87,7 @@ const Post = ({ posts, loading, fetchUsers }) => {
   };
 
   const removeUser = async (id) => {
-    await axios.delete(`http://localhost:3001/users/${id}`)
+    await axios.delete(`${process.env.REACT_APP_API_URL}/users/${id}`)
       .then(async () => {
         alert('Usuário removido com sucesso!');
         setRemoveModal(false);

@@ -11,7 +11,8 @@ const Home = () => {
 
   const fetchUsers = async () => {
     setLoading(true);
-    const res = await axios.get('http://localhost:3001/users');
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/users`);
+    console.log(process.env.REACT_APP_API_URL);
     setPosts(res.data);
     setLoading(false);
   };
