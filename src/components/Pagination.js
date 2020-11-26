@@ -1,4 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const CustomNav = styled.nav`
+  display: flex;
+   justify-content: center;
+`;
 
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [];
@@ -8,7 +14,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   }
 
   return (
-    <nav>
+    <CustomNav>
       <ul className="pagination">
         {pageNumbers.map((number) => (
           <li key={number} className="page-item">
@@ -18,7 +24,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
           </li>
         ))}
       </ul>
-    </nav>
+    </CustomNav>
   );
 };
 
