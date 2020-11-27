@@ -89,7 +89,7 @@ const Post = ({ posts, loading, fetchUsers }) => {
   const removeUser = async (id) => {
     await axios.delete(`${process.env.REACT_APP_API_URL}/users/${id}`)
       .then(async () => {
-        alert('Usuário removido com sucesso!');
+        alert('Usuário removido!');
         setRemoveModal(false);
         fetchUsers();
       }).catch((err) => {
