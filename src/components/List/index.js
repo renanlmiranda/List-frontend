@@ -53,6 +53,7 @@ const List = ({ posts, loading, fetchUsers }) => {
     axios.post(`${process.env.REACT_APP_API_URL}/users`, data)
       .then((res) => {
         alert(`${res.data.user.name} criado!`);
+        setValues({});
         setCreateModal(false);
         fetchUsers();
       })
