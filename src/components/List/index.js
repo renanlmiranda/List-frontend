@@ -62,7 +62,6 @@ const List = ({ posts, loading, fetchUsers }) => {
   };
 
   const updateUser = (user) => {
-    console.log(user);
     try {
       const data = {
         name: user.name,
