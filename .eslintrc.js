@@ -29,6 +29,9 @@ module.exports = {
     'no-console': 0,
     'no-implicit-globals': 0,
     'no-alert': 0,
-    // 'no-unused-expressions': 0,
+    'no-unused-expressions': 0,
+    'import/prefer-default-export': 0,
+    'jsx-a11y/anchor-is-valid': 0,
+    'prefer-const': 0,
   },
 };

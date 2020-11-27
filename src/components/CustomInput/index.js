@@ -8,6 +8,8 @@ const CustomInput = ({
   onChange,
   placeholder,
   value,
+  invalid,
+  valid,
 }) => (
   <>
     <Input
@@ -18,6 +20,8 @@ const CustomInput = ({
       name={name}
       onChange={onChange}
       defaultValue={value}
+      valid={valid}
+      invalid={invalid}
     />
   </>
 );

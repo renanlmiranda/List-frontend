@@ -1,10 +1,9 @@
 import React from 'react';
 import CustomInput from '../CustomInput';
 import CustomLabel from '../CustomLabel';
-import SelectInput from '../SelectInput';
 
 const CustomForm = ({
-  type, name, id, placeholder, onChange, value, label,
+  type, name, id, placeholder, onChange, value, label, valid, invalid,
 }) => (
   <>
     <CustomLabel title={label} />
@@ -15,6 +14,8 @@ const CustomForm = ({
       placeholder={placeholder}
       onChange={onChange}
       value={value}
+      valid={valid}
+      invalid={invalid}
     />
   </>
 );
