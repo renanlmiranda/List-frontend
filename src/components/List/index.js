@@ -172,6 +172,7 @@ const List = ({ posts, loading, fetchUsers }) => {
               value={userObject.name}
               label="Nome"
             />
+
             <CustomForm
               type="number"
               name="age"
@@ -228,7 +229,7 @@ const List = ({ posts, loading, fetchUsers }) => {
       <UpdateModal
         modal={createModal}
         toggle={createToogle}
-        accept={() => createUser(values)}
+        accept={() => { createUser(values); }}
         acceptText="Criar"
         title="Criação de usuário"
       >
@@ -254,15 +255,20 @@ const List = ({ posts, loading, fetchUsers }) => {
               Preencha o campo
             </FormFeedback>
           </FormGroup>
-          <CustomForm
-            type="number"
-            name="age"
-            id="age"
-            placeholder="Idade"
-            onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
-            value={values.age}
-            label="Idade"
-          />
+          <FormGroup>
+            <CustomForm
+              type="number"
+              name="age"
+              id="age"
+              placeholder="Idade"
+              onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
+              value={values.age}
+              label="Idade"
+            />
+            <FormFeedback invalid>
+              Preencha o campo
+            </FormFeedback>
+          </FormGroup>
           <CustomSelectForm
             type="select"
             name="maritalStatus"
@@ -271,35 +277,63 @@ const List = ({ posts, loading, fetchUsers }) => {
             onChange={(e) => handleCreateMaritalStatusChange(e)}
             label="Estado Civil"
           />
-          <CustomForm
-            type="text"
-            name="cpf"
-            id="cpf"
-            placeholder="CPF"
-            onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
-            value={values.cpf}
-            label="CPF"
-          />
-
-          <CustomForm
-            type="text"
-            name="city"
-            id="city"
-            placeholder="Cidade"
-            onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
-            value={values.city}
-            label="Cidade"
-          />
-
-          <CustomForm
-            type="text"
-            name="state"
-            id="state"
-            placeholder="Estado"
-            onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
-            value={values.state}
-            label="Estado"
-          />
+          <FormGroup>
+            <CustomForm
+              type="text"
+              name="cpf"
+              id="cpf"
+              placeholder="CPF"
+              onChange={(e) => {
+                setValues({ ...values, [e.target.name]: e.target.value });
+                validateEmpty(e);
+              }}
+              value={values.cpf}
+              label="CPF"
+              valid={isValid.cpf === 'true'}
+              invalid={isValid.cpf === 'false'}
+            />
+            <FormFeedback invalid>
+              Preencha o campo
+            </FormFeedback>
+          </FormGroup>
+          <FormGroup>
+            <CustomForm
+              type="text"
+              name="city"
+              id="city"
+              placeholder="Cidade"
+              onChange={(e) => {
+                setValues({ ...values, [e.target.name]: e.target.value });
+                validateEmpty(e);
+              }}
+              value={values.city}
+              label="Cidade"
+              valid={isValid.city === 'true'}
+              invalid={isValid.city === 'false'}
+            />
+            <FormFeedback invalid>
+              Preencha o campo
+            </FormFeedback>
+          </FormGroup>
+          <FormGroup>
+            <CustomForm
+              type="text"
+              name="state"
+              id="state"
+              placeholder="Estado"
+              onChange={(e) => {
+                setValues({ ...values, [e.target.name]: e.target.value });
+                validateEmpty(e);
+              }}
+              value={values.state}
+              label="Estado"
+              valid={isValid.state === 'true'}
+              invalid={isValid.state === 'false'}
+            />
+            <FormFeedback invalid>
+              Preencha o campo
+            </FormFeedback>
+          </FormGroup>
 
         </Form>
       </UpdateModal>
